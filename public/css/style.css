@@ -1,0 +1,10 @@
+body {
+	background-color: #3D004A;
+}
+
+.8ball {
+height: 650px;
+width: 650px;
+border-radius: 325px;
+background-image: radial-gradient(72% -8%, #9B9B9B 83%, #000000 100%);
+}
