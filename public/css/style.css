@@ -1,0 +1,30 @@
+body {
+	background-color: #EAEFF2 !important;
+}
+
+.header {
+	background-image: url("https://kristiporter.files.wordpress.com/2013/08/cropped-999635725.jpg");
+	background-position: center;
+	background-size: 900px auto;
+	max-height: 272px;
+}
+
+.header h1 {
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+.header h3 {
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+.red {
+	background-color: red !important;
+}
+
+#todo-list {
+	font-size: 1em;
+	line-height: 2em;
+	list-style-image: url('http://www.globaliconnect.com/excel/templates/protostar/images/system/rating_star.png');
+}
