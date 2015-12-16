@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Magic8Ball">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Magic 8 Ball</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+		 <header>
+
+        </header>
+
+
+<!-- ******************  8 Ball View  ****************** -->
+	<div class="circle" id="ball">
+		<div id="ballwindow">
+			<div id="triangle">
+			<span id="readout"><img ng-src="/assets/images/responses/{{response.filename}}" alt="{{response.text}}"></span>
+			</div>
+		</div>
+	</div>
+	<script src="js/three.min.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
