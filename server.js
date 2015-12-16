@@ -4,7 +4,7 @@ var express 	= require('express'),
 	morgan		= require('morgan'), //logger
 	bodyParser	= require('body-parser'), //pull info from HTML POST
  methodOverride	= require('method-override'), //simulate DELETE and PUT methods
- 	Response 		= require('./models/response.js');
+ 	Response 	= require('./models/response.js');
 
 // configuration
  mongoose.connect('mongodb://localhost/magic8_01');
@@ -49,7 +49,8 @@ app.post('/responses', function(req, res) {
 	// This will get iformation from an AJAX request via Angular
 	Response.create({
 		text: req.body.text,
-		imgurl: req.body.imgurl,
+		filename: req.body.filename,
+		type: req.body.type,
 		done: false
 	}, function(err, response) {
 		if (err) 

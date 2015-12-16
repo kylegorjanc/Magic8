@@ -1,12 +1,55 @@
-body {
-	background-color: #EAEFF2 !important;
+* {
+	box-sizing: border-box;
+	color: #dddddd;
+	font-family: fantasy;
 }
 
+canvas { 
+	width: 100%; 
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	background-color: rgba(30, 0, 30, 1);
+	background-image: linear-gradient(to bottom, rgb(50,0,50), rgb(20,0,20));
+	text-align: center;
+	position: relative;
+	object-fit: cover;
+}
+
+#ball {
+	position: relative;
+	margin: 0 auto;
+	padding: 150px;
+	top: 0px;
+	height: 650px;
+	width: 650px;
+	border: 1px solid #202020;
+	border-radius: 325px;
+	background-color: #000000;
+	background: url('/images/ball.png') top center no-repeat;
+}
+
+#ballwindow {
+	position: relative;
+	height: 300px;
+	width: 300px;
+	border-radius: 145px;
+	background-color: #111111;
+	background: url('/images/ballwindow.png') top center no-repeat;
+	border-image: linear-gradient(to top right, #313131, #000000);
+}
+
+#triangle {
+	position: relative;
+	height: 300px;
+	width: 300px;
+	border-radius: 145px;
+}
+
+
 .header {
-	background-image: url("https://kristiporter.files.wordpress.com/2013/08/cropped-999635725.jpg");
-	background-position: center;
-	background-size: 900px auto;
-	max-height: 272px;
 }
 
 .header h1 {
@@ -23,8 +66,25 @@ body {
 	background-color: red !important;
 }
 
-#todo-list {
+.btn {
+	background-color: #005500 !important;
+	border: 1px solid #002200 !important;
+	vertical-align: top !important;
+}
+
+#response-list {
 	font-size: 1em;
 	line-height: 2em;
 	list-style-image: url('http://www.globaliconnect.com/excel/templates/protostar/images/system/rating_star.png');
+}
+
+.weather-form {
+	width: 100%;
+}
+.weather-input  {
+	display: inline;
+	background-color: #fff;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	border: 1px solid #ccc;
+	width: 70%;
 }

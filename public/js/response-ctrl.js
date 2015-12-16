@@ -1,20 +1,35 @@
 'use strict';
-responseApp.controller('ResponseCtrl', ['$http', '$log', ResponseCtrl]) 
+Magic8App.controller('ResponseCtrl', ['$http', '$log', ResponseCtrl]) 
 
 function ResponseCtrl($http, $log) {
 	$log.info('response-ctrl.js is connected hooray');
 
 	var self = this;
 	self.all = [];
-	self.addResponse = addResponse;
-	self.newResponse = {};
-	self.getResponses = getResponses;
-	self.deleteResponse = deleteResponse;
-	self.editResponse = editResponse;
+	self.getResponse = getResponse;
+	self.currentResponse = {};
+	self.currentText = "";
+	self.currentFilename = "";
+	self.getAllResponses = getAllResponses;
+
 
 	self.newText = "";
 
-	function getResponses() {
+	function getResponse(input) {
+		console.log("in the getResponse function")
+		if (input = 'random') {
+			var allResponses = self.all;
+			self.currentResponse === allResponses[Math.floor(Math.random() * allResponses.length)];
+			console.log(self.currentResponse);
+		} else {
+			console.log("at least the function ran");
+		}
+	};
+
+
+
+//  This function is for the response list at the bottom of the page
+	function getAllResponses() {
 		$http.get('/responses')
 			.then(function successCB(res){
 				self.all = res.data;
@@ -24,7 +39,21 @@ function ResponseCtrl($http, $log) {
 				$log.error('failure', err);
 			});
 	}
-	getResponses();
+	getAllResponses();
+
+
+
+
+
+
+
+
+// The following functions were created solely for administrative changes to the response database. They are not designated for user functionality.
+	self.addResponse = addResponse;
+	self.newResponse = {};
+	self.deleteResponse = deleteResponse;
+	self.editResponse = editResponse;
+
 
 	function addResponse(data) {
 		console.log(data);
@@ -45,11 +74,11 @@ function ResponseCtrl($http, $log) {
 			.catch(function(res){
 				$log.error('failure', res);
 			});
-			getResponses();
+			getAllResponses();
 	};
 
 	function deleteResponse(id) {
-		console.log("You're in the delete function");
+		console.log("Hopefully nobody ever deletes a response.");
 		$http.delete('/responses/' + id)
 			.then(function(res){
 				$log.log(res);
@@ -57,63 +86,9 @@ function ResponseCtrl($http, $log) {
 			.catch(function(res){
 				$log.error('failure', res);
 			});
-		getResponses();
+		getAllResponses();
 	}
 
 };
-	// function addResponse(data) {
-	// 	console.log(data);
-	// 	$http({
-	// 	  url: '/responses',
-	// 	  method: 'POST',
-	// 	  data: {text:data}
-	// 	});
-
-	// 	// $http.post('/responses')
-	// 	// 	.then(function(res){
-	// 	// 		// getResponses();
-	// 	// 	})
-	// 	// 	.catch(function(res) {
-	// 	// 		$log.error('failure', res);
-	// 	// 	})
-		
-	// 	self.newResponse = {};
-	// };
-
-	// //when we arrive on the page, get all responses and show them.
-	// $http.get('/responses')
-	// 	.success(function(data) {
-	// 		self.responses = data;
-	// 		console.log(data);
-	// 	})
-	// 	.error(function(data) {
-	// 		console.log('Error: ' + data);
-	// 	});
-
-	// //when we post a new response, send the text to the node API
-	// self.createResponse = function() {
-	// 	$http.post('/responses', self.formData)
-	// 		.success(function(data) {
-	// 			self.formData = {}; //clear the form
-	// 			self.responses = data;
-	// 			console.log(data);
-	// 		})
-	// 		.error(function(data){
-	// 			console.log('Error: ' + data);
-	// 		});
-	// };
-
-
-	// //delete a response when it's marked 'done'
-	// self.deleteResponse = function(id) {
-	// 	$http.delete('/responses/' + id)
-	// 		.success(function(data) {
-	// 			self.responses = data;
-	// 			console.log(data);
-	// 		})
-	// 		.error(function(data) {
-	// 			console.log('Error ' + data);
-	// 		});
-	// };
 
 

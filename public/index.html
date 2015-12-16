@@ -3,50 +3,59 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Tada! To Do!</title>
+	<title>Mystical Magic 8 Ball</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
 </head>
 <body ng-controller="ResponseCtrl as responses">
-	<div class="container">
+	<div class="container" ng-cloak>
 				
-		<div class="header jumbotron text-center">
-			<h1>TADA!</h1>
-			<h4>a todo list</h4><br>
-			<h4><span class="red label label-info">{{todos.all.length}}</span>  to go</h4>
+		<div class="header text-center">
+			<h1>Magic 8 Ball</h1>
+			<h4>mystically predict the weather</h4>
 		</div>  <!-- .header -->
 
 
 
 		<div class="main">
+
+			<div class="row" id="weather-form">
+				<div class="col-lg-1 text-center">
+					<!-- <form action=""> -->
+						<!-- <div class="form-group"> -->
+							<!-- use Angular to bind this value to formData.text -->
+							<input type="text" id="new-weather-city" class="weather-input input-lg text-center" placeholder="City name (this doesn't work yet)" ng-model="na">
+							<button class="btn btn-primary btn-lg" type="submit" ng-click="responses.getResponse('random')">See Your Fate</button>
+						<!-- </div> -->
+					<!-- </form> -->
+				</div> <!-- boostrap columns -->
+			</div> <!-- .row #response-form -->
+
+<!-- ******************  8 Ball View  ****************** -->
+				<div class="col-lg-3 text-center">
+					<div class="ballcomponents" id="ball">
+						<div id="ballwindow">
+							<div id="triangle">
+							<span id="readout"><img ng-src="./images/responses/{{currentResponse.filename}}" alt="response goes here{{currentResponse.text}}"></span>
+							</div>
+						</div>
+					</div>
+				</div> <!-- boostrap columns -->
+
+
+		
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-4">
-					<ul id="todo-list" >
-						<li ng-repeat="todo in todos.all">
-					<!-- iterate over todos -->
-							{{todo.text}}
-							<a href class="glyphicon glyphicon-pencil" aria-hidden="true" ng-click="todos.editTodo(todo._id)"	></a>
-							<a href class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="todos.deleteTodo(todo._id)" style="color: red; font-size: .8em;"></a>
+					<ul id="response-list" ><h4>Possible responses:</h4>
+						<li ng-repeat="response in responses.all">
+					<!-- iterate over responses -->
+							{{response.text}}
 						</li>
 					</ul>
 				</div>  <!-- bootstrap columns -->
-			</div> <!-- .row #todo-list -->
-
-			<div class="row" id="todo-form">
-				<div class="col-sm-8 col-sm-offset-2 text-center">
-					<form action="">
-						<div class="form-group">
-							<!-- use Angular to bind this value to formData.text -->
-							<input type="text" id="new-todo-text" class="form-control input-lg text-center" placeholder="Work on my project" ng-model="todos.newText">
-						</div>
-						<button class="btn btn-primary btn-lg" type="submit" ng-click="todos.addTodo(todos.newText)">Add</button>
-					</form>
-				</div> <!-- boostrap columns -->
-			</div> <!-- .row #todo-form -->
+			</div> <!-- .row #response-list -->
 
 		</div>  <!-- .main -->
-
-
 
 		<div class="footer">
 			

@@ -2,9 +2,10 @@
 
 var mongoose = require('mongoose');
 
-var ResponseSchema = mongoose.Schema({
-	text : String
-	imgurl: String
+var ResponseSchema = new mongoose.Schema({
+	text : String,
+	filename: String,
+	type: String
 });
 
 module.exports = mongoose.model('Response', ResponseSchema);
