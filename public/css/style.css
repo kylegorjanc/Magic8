@@ -19,6 +19,7 @@ body {
 }
 
 #ball {
+	display: block;
 	position: relative;
 	margin: 0 auto;
 	padding: 150px;
@@ -26,12 +27,41 @@ body {
 	height: 650px;
 	width: 650px;
 	border: 1px solid #202020;
-	border-radius: 325px;
+	border-radius: 50%;
 	background-color: #000000;
+	/*background-image: radial-gradient(72% -8%, #9B9B9B 83%, #000000 100%);
+	background: radial-gradient(circle at 50% 120%, #323232, #0a0a0a 80%, #000000 100%);*/
 	background: url('/images/ball.png') top center no-repeat;
 }
 
-#ballwindow {
+/*#ball:before {
+  content: "";
+  position: absolute;
+  background: radial-gradient(circle at 50% 120%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 50%);
+  border-radius: 50%;
+  bottom: 2.5%;
+  left: 5%;
+  opacity: 0.6;
+  height: 100%;
+  width: 90%;
+  filter: blur(5px);
+  z-index: 2;
+}*/
+
+#ball:after {
+  content: "";
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  top: 15%;
+  left: 70%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8) 14%, rgba(255, 255, 255, 0) 24%);
+  transform: translateX(-80px) translateY(-90px) skewX(40deg);
+  filter: blur(10px);
+}
+
+#content {
 	position: relative;
 	height: 300px;
 	width: 300px;
@@ -79,6 +109,7 @@ body {
 }
 
 .weather-form {
+	display: block;
 	width: 100%;
 }
 .weather-input  {

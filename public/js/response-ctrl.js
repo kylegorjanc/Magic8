@@ -8,8 +8,6 @@ function ResponseCtrl($http, $log) {
 	self.all = [];
 	self.getResponse = getResponse;
 	self.currentResponse = {};
-	self.currentText = "";
-	self.currentFilename = "";
 	self.getAllResponses = getAllResponses;
 
 
@@ -19,8 +17,9 @@ function ResponseCtrl($http, $log) {
 		console.log("in the getResponse function")
 		if (input = 'random') {
 			var allResponses = self.all;
-			self.currentResponse === allResponses[Math.floor(Math.random() * allResponses.length)];
+			self.currentResponse = allResponses[Math.floor(Math.random() * allResponses.length)];
 			console.log(self.currentResponse);
+			debugger;
 		} else {
 			console.log("at least the function ran");
 		}
