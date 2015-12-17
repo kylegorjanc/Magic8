@@ -16,14 +16,13 @@ function ResponseCtrl($http, $log) {
 		
 	}
 
-	function shakeBall(e) {
+	function shakeBall() {
 		document.getElementById("ball").setAttribute("style", "animation: shake 2s");
-		document.getElementById("response-triangle").removeAttribute("style", "animation: fadeIn 5s;");
 		document.getElementById("response-triangle").setAttribute("style", "animation: fadeOut 3s;");
-		newResponse(e);
+		newResponse();
 	};
 
-	function newResponse(e) {
+	function newResponse() {
 		
 		// setTimeout(function(){
 			var allResponses = self.all;
@@ -31,7 +30,6 @@ function ResponseCtrl($http, $log) {
 			console.log(self.currentResponse.text);
 			self.currentText = self.currentResponse.text;
 			document.getElementById("response-triangle").setAttribute("style", "animation: fadeIn 5s;")
-		e.preventDefault();
 		// }, 3000);
 	}
 

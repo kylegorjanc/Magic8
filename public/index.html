@@ -12,7 +12,7 @@
 				
 		<div class="header text-center">
 			<h1>Magic 8 Ball</h1>
-			<h4>mystically predict your future</h4>
+			<h4>mystically predict the weather</h4>
 		</div>  <!-- .header -->
 
 
@@ -20,11 +20,11 @@
 		<div class="main">
 
 			<div class="row" id="weather-form">
-				<div class="text-center">
+				<div class="col-lg-1 text-center">
 					<!-- <form action=""> -->
 						<!-- <div class="form-group"> -->
 							<!-- use Angular to bind this value to formData.text -->
-							<input type="text" id="new-weather-city" class="weather-input input-lg text-center" placeholder="Ask your question" ng-model="na">
+							<input type="text" id="new-weather-city" class="weather-input input-lg text-center" placeholder="City name (this doesn't work yet)" ng-model="na">
 							<button class="btn btn-primary btn-lg" type="submit" ng-click="responses.getResponse('random')">See Your Fate</button>
 						<!-- </div> -->
 					<!-- </form> -->
@@ -33,10 +33,11 @@
 
 <!-- ******************  8 Ball View  ****************** -->
 				<div class="col-lg-3 text-center">
-					<div class="ballcomponents" id="ball" >
-					<!-- ng-mouseover="responses.getResponse('random')" -->
+					<div class="ballcomponents" id="ball">
 						<div class="ballcomponents"id="content">
-							<span id="readout"><img src ng-src="./images/responses/{{responses.currentResponse.filename}}" alt="{{responses.currentText}}" id="response-triangle"></span>
+							<div id="triangle">
+							<span id="readout"><img src ng-src="./images/responses/{{response.currentResponse.filename}}" alt="response goes here{{response.currentResponse.text}}"></span>
+							</div>
 						</div>
 					</div>
 				</div> <!-- boostrap columns -->
