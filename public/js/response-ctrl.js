@@ -9,22 +9,31 @@ function ResponseCtrl($http, $log) {
 	self.getResponse = getResponse;
 	self.currentResponse = {};
 	self.getAllResponses = getAllResponses;
-
-
 	self.newText = "";
 
-	function getResponse(input) {
-		console.log("in the getResponse function")
-		if (input = 'random') {
-			var allResponses = self.all;
-			self.currentResponse = allResponses[Math.floor(Math.random() * allResponses.length)];
-			console.log(self.currentResponse);
-			debugger;
-		} else {
-			console.log("at least the function ran");
-		}
+	function getResponse() {
+		shakeBall();
+		
+	}
+
+	function shakeBall(e) {
+		document.getElementById("ball").setAttribute("style", "animation: shake 2s");
+		document.getElementById("response-triangle").removeAttribute("style", "animation: fadeIn 5s;");
+		document.getElementById("response-triangle").setAttribute("style", "animation: fadeOut 3s;");
+		newResponse(e);
 	};
 
+	function newResponse(e) {
+		
+		// setTimeout(function(){
+			var allResponses = self.all;
+			self.currentResponse = allResponses[Math.floor(Math.random() * allResponses.length)];
+			console.log(self.currentResponse.text);
+			self.currentText = self.currentResponse.text;
+			document.getElementById("response-triangle").setAttribute("style", "animation: fadeIn 5s;")
+		e.preventDefault();
+		// }, 3000);
+	}
 
 
 //  This function is for the response list at the bottom of the page
